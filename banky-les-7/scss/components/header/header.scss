@@ -1,6 +1,7 @@
 @use "../../abstracts/vars";
+@use "../../abstracts/colors";
 .header{
-    background: white;
+    background: map-get(colors.$baseColors, "whiteColor");
     height:map-get(vars.$vhCalc, "heightOfHeader");
     max-width: 150rem;
     font-family: 'Amatic SC', cursive;
@@ -8,6 +9,8 @@
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(10rem, 1fr));
 
     &__logo{
         display: flex;
@@ -17,5 +20,6 @@
         gap: 0.5rem;
         font-weight: 400;
         justify-content: center;
+        grid-column-start: 2;
     }
 }

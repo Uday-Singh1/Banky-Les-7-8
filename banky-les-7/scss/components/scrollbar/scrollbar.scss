@@ -2,6 +2,6 @@
    
 /* only on firefox */
   body {
-    scrollbar-color:lack map-get(colors.$baseColors,"backgroundDark");
+    scrollbar-color: map-get(colors.$baseColors,"backgroundDark") map-get(colors.$baseColors, "whiteColor");
     ;   /* scroll thumb and track */ 
   }

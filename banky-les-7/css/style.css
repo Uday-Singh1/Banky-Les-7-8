@@ -20,8 +20,14 @@ body {
   min-height: 100vh;
 }
 
+.buttonAndAvatarWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
 .header {
-  background: white;
+  background: #fff;
   height: 8rem;
   max-width: 150rem;
   font-family: "Amatic SC", cursive;
@@ -29,6 +35,8 @@ body {
   border-top-left-radius: 5rem;
   border-top-right-radius: 5rem;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(10rem, 1fr));
 }
 .header__logo {
   display: flex;
@@ -38,10 +46,56 @@ body {
   gap: 0.5rem;
   font-weight: 400;
   justify-content: center;
+  grid-column-start: 2;
+}
+
+.avatarwrapper {
+  height: 100%;
+  width: 100%;
+  grid-column-start: 3;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.avatar {
+  width: 8rem;
+  height: 8rem;
+  background: black;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  border: 0.6rem solid;
+  cursor: pointer;
+}
+.avatar__head {
+  width: 40%;
+  height: 40%;
+  background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.8s all;
+}
+.avatar__body {
+  width: 60%;
+  height: 60%;
+  background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 100%;
+}
+.avatar:hover .avatar__head {
+  cursor: pointer;
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .banky {
-  background: white;
+  background: #fff;
   min-height: calc(100vh - 8rem - 8rem);
   display: grid;
   grid-template-columns: 40% 60%;
@@ -55,10 +109,6 @@ body {
 .banky__section--left {
   flex-direction: column;
   justify-content: space-between;
-  background: blue;
-}
-.banky__section--right {
-  background: green;
 }
 .banky__header {
   display: flex;
@@ -84,22 +134,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #eee;
+  color: #fff;
   box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
+  transition: 0.2s all;
 }
 .banky__eye {
   background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #eee;
+  color: #fff;
   border-radius: 50%;
   font-size: 2rem;
   width: 3rem;
   height: 3rem;
-  position: absolute;
-  left: 29rem;
-  top: -30%;
 }
 .banky__transactions {
   padding: 2rem;
@@ -130,11 +178,7 @@ body {
   bottom: 0;
   left: 0;
 }
-.banky__name {
-  font-weight: 300;
-  font-size: 120%;
-}
-.banky__amount {
+.banky__name .banky__amount {
   font-weight: 300;
   font-size: 120%;
 }
@@ -144,14 +188,14 @@ body {
   border: none;
   padding: 1rem;
   margin-top: 2rem;
-  color: #eee;
+  color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.2);
   transition: 0.4s all;
 }
 .banky__transferButton:hover {
   cursor: pointer;
-  background: white;
+  background: #fff;
   color: #66347F;
   box-shadow: inset 0 0 0 0.2rem #66347F;
 }
@@ -165,6 +209,16 @@ body {
   gap: 4rem;
   justify-content: center;
 }
+.banky__switchAccount, .banky__eyeButton {
+  background: none;
+  border: none;
+}
+.banky__switchAccount:hover, .banky__eyeButton:hover {
+  cursor: pointer;
+}
+.banky__switchAccount:hover .banky__logo, .banky__eyeButton:hover .banky__logo {
+  background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+}
 .banky__account {
   display: flex;
   align-items: center;
@@ -177,8 +231,45 @@ body {
 
 /* only on firefox */
 body {
-  scrollbar-color: lack #66347F;
+  scrollbar-color: #66347F #fff;
   /* scroll thumb and track */
+}
+
+@media screen and (max-width: 62.5rem) {
+  .banky {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .banky__accounts {
+    align-items: flex-start;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .banky__accounts::after {
+    content: "";
+    width: 100%;
+    height: 3%;
+    background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+    border: 0.2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0.1rem;
+  }
+}
+@media screen and (max-width: 37.5rem) {
+  body {
+    padding: 0;
+  }
+  .header {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  .banky__transactions {
+    height: auto;
+    overflow: auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

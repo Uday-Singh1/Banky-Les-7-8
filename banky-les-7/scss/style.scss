@@ -1,8 +1,9 @@
 @use "./abstracts/reset";
 @use "./base.scss";
 @use "./components/header/header.scss";
+@use "./components/avatar/avatar.scss";
 @use "./components/banky/banky.scss";
 @use "./components/scrollbar/scrollbar.scss";
 @use "./abstracts/mediaqueries.scss";
-//@use "./abstracts/colors";
+@use "./abstracts/colors";
 //@use "./abstracts/mixins"

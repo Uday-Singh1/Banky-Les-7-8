@@ -3,9 +3,15 @@
 body{
     padding:map-get(vars.$vhCalc, "heightOfHeader");;
     padding-bottom: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(to bottom right, map-get(colors.$baseColors, "background"),30%, map-get(colors.$baseColors,"backgroundDark"));
+    font-family: vars.$font-family;
+    background:  vars.$gradient;
     min-height: 100vh;
+
    
- 
+}
+
+.buttonAndAvatarWrapper{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
 }
