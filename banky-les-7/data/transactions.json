@@ -1,0 +1,16 @@
+[{
+    "from/to": "Jeroen",
+    "amount": 10
+},
+{
+    "from/to": "Uday",
+    "amount": 100
+},
+{
+    "from/to": "nabil",
+    "amount": -100
+},
+{
+    "from/to": "Ahmet",
+    "amount": -20
+}]
