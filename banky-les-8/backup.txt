@@ -1,0 +1,16 @@
+HEADER
+
+    <header class="header">
+      <figure class="header__logo">
+        <i class="fa-solid fa-money-bill-transfer"></i>
+        <h2 class="header__banky">Banky</h2>
+      </figure>
+      <div class="buttonAndAvatarWrapper">
+        <figure class="avatar">
+          <div class="avatar__head"></div>
+          <div class="avatar__body"></div>
+        </figure>
+        </div>
+    </header>
+
+    
