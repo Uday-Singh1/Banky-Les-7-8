@@ -1,0 +1,17 @@
+@use "./abstracts/colors";
+@use "./abstracts/vars";
+body{
+    padding:map-get(vars.$vhCalc, "heightOfHeader");;
+    padding-bottom: 0;
+    font-family: vars.$font-family;
+    background:  vars.$gradient;
+    min-height: 100vh;
+
+   
+}
+
+.buttonAndAvatarWrapper{
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+}

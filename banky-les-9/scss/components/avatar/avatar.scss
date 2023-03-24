@@ -1,0 +1,54 @@
+@use "../../abstracts/colors";
+
+
+.avatarwrapper{
+    height:100%;
+    width:100%;
+    grid-column-start: 3;
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+.avatar{
+    width:8rem;
+    height: 8rem;
+    background: black;
+    border-radius: 50%;
+    position:relative;
+    overflow: hidden;
+    border: 0.6rem solid map-get(colors.$baseColors, "backgroundDark" );
+    cursor:pointer;
+
+
+    &__head{
+        width: 40%;
+        height: 40%;
+        background:linear-gradient(to bottom right, #AA77FF, 30%, #66347F);
+        border-radius: 50%;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.8s all;
+        
+    }
+
+    &__body{
+        width: 60%;
+        height: 60%;
+        background: linear-gradient(to bottom right, #AA77FF, 30%, #66347F); ;
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 100%;
+       
+    }
+
+    &:hover &__head{
+        cursor: pointer;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
