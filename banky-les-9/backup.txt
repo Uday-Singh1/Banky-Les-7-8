@@ -117,3 +117,8 @@ HEADER
         this.bankySwitchButton.appendChild(this.bankySwitchAccountFigure);
         this.bankySwitchAccountFigure.appendChild(this.bankySwitchI);
         this.accountElement.appendChild(this.bankyNameofAccount);
+
+
+
+//const banky = new BankyMain("body"); glitcht de website (regel 255)
+//banky.render();     Breekt de website (regel 256)
