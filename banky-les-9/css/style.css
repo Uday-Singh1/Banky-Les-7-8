@@ -26,6 +26,16 @@ body {
   gap: 2rem;
 }
 
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
 .header {
   background: #fff;
   height: 8rem;
@@ -172,6 +182,8 @@ body {
   justify-content: space-between;
   position: relative;
   padding-bottom: 0.5rem;
+  animation-name: popup;
+  animation-duration: 0.6s;
 }
 .banky__transaction::after {
   content: "";
@@ -213,6 +225,8 @@ body {
   align-items: center;
   gap: 4rem;
   justify-content: center;
+  animation-name: popup;
+  animation-duration: 0.6s;
 }
 .banky__switchAccount, .banky__eyeButton {
   background: none;

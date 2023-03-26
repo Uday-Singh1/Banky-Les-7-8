@@ -2,11 +2,13 @@
     "Bankrekening": [
      {
        "from/to": "Uday",
-      "amount": 10
+      "amount": 10,
+      "logo": "fa-house"
      },
      {
        "from/to": "Nabil",
-      "amount": 100
+        "amount": 100
+     
     },
     {
       "from/to": "Ahmet",

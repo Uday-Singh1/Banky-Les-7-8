@@ -1,6 +1,7 @@
 @use "../../abstracts/vars";
 @use "../../abstracts/colors";
 @use "../../abstracts/mixins";
+@use "../../abstracts/animations";
 
 .banky{
     background:map-get(colors.$baseColors, "whiteColor");
@@ -10,6 +11,7 @@
     padding: 4rem;
     max-width: 150rem;
     margin: 0 auto;
+  
  
     &__section{
     display: flex;
@@ -94,6 +96,7 @@
        justify-content: space-between;
        position: relative;
        padding-bottom: 0.5rem;
+       @include animations.popupMixin;
         
 
 
@@ -138,6 +141,7 @@
         align-items: center;
         gap: 4rem;
         justify-content: center;
+        @include animations.popupMixin;
     }
     &__switchAccount, &__eyeButton{
         background: none;

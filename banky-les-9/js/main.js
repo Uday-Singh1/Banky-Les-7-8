@@ -125,7 +125,6 @@ class BankyLeftSection {
 
         this.bankyLogoText = document.createElement("h1");
         this.bankyLogoText.classList = "banky__money";
-        this.bankyLogoText.innerText = "Saldo $10";
 
         this.eyeButton = document.createElement("button");
         this.eyeButton.classList = "banky__eyeButton";
@@ -165,7 +164,7 @@ class BankyLeftSection {
             this.transactionFrom = document.createElement("h3");
             this.transactionFrom.classList = "banky__name";
             this.transactionFrom.innerText = data[accountToShow][i]["from/to"];
-    
+
             this.transactionAmount = document.createElement("h3");
             this.transactionAmount.classList = "banky__amount";
             this.transactionAmount.innerText = data[accountToShow][i]["amount"];
@@ -174,6 +173,7 @@ class BankyLeftSection {
             this.transactionsElement.appendChild(this.transactionElement);
             this.transactionElement.appendChild(this.transactionFrom);
             this.transactionElement.appendChild(this.transactionAmount);
+
         }
     }
         render() {
