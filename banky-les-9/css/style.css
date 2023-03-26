@@ -125,6 +125,9 @@ body {
   font-weight: 400;
   font-size: 250%;
 }
+.banky__money--blur {
+  filter: blur(20px);
+}
 .banky__logo {
   border-radius: 50%;
   font-size: 3rem;
@@ -158,6 +161,9 @@ body {
   gap: 2rem;
   height: 50rem;
   overflow-y: scroll;
+}
+.banky__transactions--blur {
+  filter: blur(20px);
 }
 .banky__transaction {
   display: flex;

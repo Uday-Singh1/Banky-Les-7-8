@@ -10,3 +10,7 @@
     bottom: 0;
     left: 0;
 }
+
+@mixin blur{
+    filter: blur(20px);
+}

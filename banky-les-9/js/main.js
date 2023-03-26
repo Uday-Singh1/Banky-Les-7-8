@@ -129,6 +129,8 @@ class BankyLeftSection {
 
         this.eyeButton = document.createElement("button");
         this.eyeButton.classList = "banky__eyeButton";
+        this.eyeButton.onclick = this.eyeButtonClicked;
+
 
         this.eyeFigure = document.createElement("figure");
         this.eyeFigure.classList = "banky__eye";
@@ -139,6 +141,11 @@ class BankyLeftSection {
         this.transactionsElement = document.createElement("ul");
         this.transactionsElement.classList = "banky__transactions";
 
+    }
+
+    eyeButtonClicked = () => {
+        this.transactionsElement.classList.toggle("banky__transactions--blur");
+        this.bankyLogoText.classList.toggle("banky__money--blur");
     }
 
     makeTransactionsFromData(accountToShow,data) {
@@ -275,4 +282,4 @@ class App {
 
  const app = new App();
 
-//Video 6/9 Timestamp: (04:20)
+//Video 7/9 Timestamp: ...

@@ -37,7 +37,12 @@
     &__money{
         font-weight: 400;
         font-size: 250%;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
+
 
     &__logo{
         border-radius: 50%;
@@ -76,6 +81,10 @@
         gap: 2rem;
         height: 50rem;
         overflow-y: scroll;
+
+        &--blur{
+            @include mixins.blur;
+        }
     }
 
     &__transaction{
@@ -85,6 +94,8 @@
        justify-content: space-between;
        position: relative;
        padding-bottom: 0.5rem;
+        
+
 
        &::after{
         @include mixins.afterStyle;
