@@ -90,11 +90,11 @@ class BankyMain {
     }
 
     makeTransactionsFromData(data) {
-        this.leftSection.makeTransactionsFromData(Object.entries(data)[0][0],data);
+        this.leftSection.makeTransactionsFromData(data.items[0].transactions);
     }
 
     callFromRightSection(account,data) {
-        this.leftSection.makeTransactionsFromData(account, data);
+        this.leftSection.makeTransactionsFromData(account.transactions, data);
     }
     render() {
         /* main */
@@ -146,29 +146,30 @@ class BankyLeftSection {
         this.transactionsElement.classList.toggle("banky__transactions--blur");
         this.bankyLogoText.classList.toggle("banky__money--blur");
     }
-
-    makeTransactionsFromData(accountToShow,data) {
+    makeTransactionsFromData(transactions) {
         let totalMoney = 0;
-        for (let i = 0; i < data[accountToShow].length; i++){
-            totalMoney += data[accountToShow][i]["amount"];
+        for (let i = 0; i < transactions.length; i++){
+            totalMoney += transactions[i]["amount"];
         }
 
         this.bankyLogoText.innerText = "Saldo" + "€" + totalMoney;
         
         //empty ul before we make li
         this.transactionsElement.innerHTML = "";
-        for (let i = 0; i < data[accountToShow].length; i++){
+        for (let i = 0; i < transactions.length; i++){
             this.transactionElement = document.createElement("li");
             this.transactionElement.classList = "banky__transaction";
            
             this.transactionFrom = document.createElement("h3");
             this.transactionFrom.classList = "banky__name";
-            this.transactionFrom.innerText = data[accountToShow][i]["from/to"];
+            this.transactionFrom.innerText = transactions[i]["from/to"];
 
             this.transactionAmount = document.createElement("h3");
             this.transactionAmount.classList = "banky__amount";
-            this.transactionAmount.innerText = data[accountToShow][i]["amount"];
+            this.transactionAmount.innerText = transactions[i]["amount"];
         
+
+            
           
             this.transactionsElement.appendChild(this.transactionElement);
             this.transactionElement.appendChild(this.transactionFrom);
@@ -218,26 +219,26 @@ class BankyRightSection {
     }
 
     
-         makeButtonsFromData(data) {
-            Object.entries(data).forEach((entry) => {
-            this.accountElement = document.createElement("li");
-            this.accountElement.classList = "banky__account";
-            this.accountElement.onclick = () => {
-                this.bankyMain.callFromRightSection(entry[0],data);
-            }
-    
-            this.bankySwitchButton = document.createElement("button");
-            this.bankySwitchButton.classList = "banky__switchAccount";
-    
-            this.bankySwitchAccountFigure = document.createElement("figure");
-            this.bankySwitchAccountFigure.classList = "banky__logo";
-    
-            this.bankySwitchI = document.createElement("i");
-            this.bankySwitchI.classList = "fa-solid fa-house";
-    
-            this.bankyNameofAccount = document.createElement("h4");
-            this.bankyNameofAccount.classList = "banky__nameOfAccount";
-            this.bankyNameofAccount.innerText = entry[0];
+    makeButtonsFromData(data) {
+             data.items.forEach((entry) => {
+                this.accountElement = document.createElement("li");
+                this.accountElement.classList = "banky__account";
+                this.accountElement.onclick = () => {
+                    this.bankyMain.callFromRightSection(entry,data);
+                }
+        
+                this.bankySwitchButton = document.createElement("button");
+                this.bankySwitchButton.classList = "banky__switchAccount";
+        
+                this.bankySwitchAccountFigure = document.createElement("figure");
+                this.bankySwitchAccountFigure.classList = "banky__logo";
+        
+                this.bankySwitchI = document.createElement("i");
+                this.bankySwitchI.classList = entry.icon;
+        
+                this.bankyNameofAccount = document.createElement("h4");
+                this.bankyNameofAccount.classList = "banky__nameOfAccount";
+                this.bankyNameofAccount.innerText = entry.name;
                 
                 this.accountsElement.appendChild(this.accountElement);
                 this.accountElement.appendChild(this.bankySwitchButton);
